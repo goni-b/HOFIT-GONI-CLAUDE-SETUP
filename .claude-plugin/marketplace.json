@@ -1,0 +1,20 @@
+{
+  "name": "hofit-goni-course",
+  "owner": {
+    "name": "HOFIT & GONI"
+  },
+  "metadata": {
+    "description": "ערכת הסקילים של חופית וגוני לבניית קמפיינים ודפי נחיתה עם AI דרך Claude",
+    "version": "1.0.0",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "ai-campaign-course",
+      "source": "./plugins/ai-campaign-course",
+      "description": "חבילת הקורס של חופית וגוני — 17 סקילים לבניית קמפיינים, קופי, דפי נחיתה, עיצוב וכלי מסמכים, הכל בעברית דרך Claude",
+      "category": "marketing",
+      "tags": ["marketing", "copywriting", "landing-pages", "meta-ads", "design", "hebrew", "hofit-goni"]
+    }
+  ]
+}

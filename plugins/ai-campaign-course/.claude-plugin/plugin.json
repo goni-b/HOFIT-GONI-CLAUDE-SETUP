@@ -1,0 +1,10 @@
+{
+  "name": "ai-campaign-course",
+  "version": "1.0.0",
+  "description": "חבילת הקורס של חופית וגוני: 17 סקילים לבניית קמפיינים בפייסבוק/אינסטגרם, כתיבת קופי בעברית, פסיכולוגיה שיווקית, דוחות Meta, בניית דפי נחיתה ואתרים, עיצוב, CRO, וכלי מסמכים (PDF/Excel/עיצוב).",
+  "author": {
+    "name": "HOFIT & GONI"
+  },
+  "keywords": ["marketing", "copywriting", "landing-pages", "meta-ads", "design", "cro", "hebrew", "hofit-goni"],
+  "license": "UNLICENSED"
+}
