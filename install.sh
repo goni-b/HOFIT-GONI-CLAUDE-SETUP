@@ -3,7 +3,7 @@
 #  HOFIT & GONI  -  התקנת סביבת העבודה עם Claude  (Mac / Linux)
 #  מתקין: Homebrew, Git, Node.js, Claude Code + 17 הסקילים
 #  הרצה (Terminal):
-#  curl -fsSL https://hofit-goni.com/install-mac | bash
+#  curl -fsSL https://raw.githubusercontent.com/goni-b/HOFIT-GONI-CLAUDE-SETUP/main/install.sh | bash
 # ============================================================
 set -e
 
