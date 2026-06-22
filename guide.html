@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap');
+
+* { margin:0; padding:0; box-sizing:border-box; }
+@page { size: A4; margin: 0; }
+
+:root{
+  --purple:#7C3AED;
+  --purple-dark:#5B21B6;
+  --ink:#1b1430;
+  --deep:#160d2e;
+  --gold:#EBC178;
+  --paper:#ffffff;
+  --soft:#f6f2ff;
+  --line:#e7def9;
+  --text:#241a3a;
+  --muted:#6b6280;
+}
+
+html{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+body{ font-family:'Heebo','Segoe UI',Arial,sans-serif; color:var(--text); background:#fff; line-height:1.6; }
+
+.page{ width:210mm; height:296mm; padding:13mm 15mm; position:relative; page-break-after:always; overflow:hidden; }
+.page:last-child{ page-break-after:auto; height:auto; min-height:296mm; }
+
+/* ---------- COVER ---------- */
+.cover{ background:linear-gradient(160deg,#1c0f3e 0%,#2a1463 45%,#3b1a86 100%); color:#fff; display:flex; flex-direction:column; justify-content:center; padding:0 22mm; }
+.cover .glow{ position:absolute; width:520px; height:520px; border-radius:50%; background:radial-gradient(circle,rgba(124,58,237,.55),transparent 65%); top:-120px; left:-120px; }
+.cover .glow2{ position:absolute; width:420px; height:420px; border-radius:50%; background:radial-gradient(circle,rgba(235,193,120,.30),transparent 65%); bottom:20px; right:-100px; }
+.brand{ font-size:15px; letter-spacing:6px; color:var(--gold); font-weight:700; margin-bottom:30px; position:relative; }
+.cover h1{ font-size:52px; font-weight:900; line-height:1.15; position:relative; }
+.cover h1 .hl{ color:var(--gold); }
+.cover .sub{ font-size:20px; color:#d9ccff; margin-top:22px; max-width:520px; position:relative; }
+.cover .pill{ display:inline-flex; gap:10px; margin-top:40px; position:relative; }
+.cover .pill span{ background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.22); padding:9px 18px; border-radius:40px; font-size:14px; font-weight:600; }
+.cover .foot{ position:absolute; bottom:18mm; right:22mm; left:22mm; display:flex; justify-content:space-between; align-items:center; color:#b9a8e6; font-size:13px; }
+
+/* ---------- HEADERS ---------- */
+.kicker{ color:var(--purple); font-weight:800; font-size:14px; letter-spacing:2px; margin-bottom:6px; }
+.h2{ font-size:30px; font-weight:900; color:var(--ink); margin-bottom:4px; }
+.lead{ font-size:16px; color:var(--muted); margin-bottom:18px; }
+.section-top{ display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+.os-badge{ width:54px; height:54px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:28px; color:#fff; flex:0 0 auto; }
+.os-win{ background:linear-gradient(135deg,#0a84ff,#0060df); }
+.os-mac{ background:linear-gradient(135deg,#3a3a3c,#1d1d1f); }
+
+/* ---------- STEP ---------- */
+.step{ display:flex; gap:18px; margin-bottom:15px; }
+.step-num{ flex:0 0 auto; width:38px; height:38px; border-radius:50%; background:var(--purple); color:#fff; font-weight:800; font-size:18px; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 14px rgba(124,58,237,.35); }
+.step-body{ flex:1; }
+.step-title{ font-size:18px; font-weight:800; color:var(--ink); margin-bottom:4px; }
+.step-text{ font-size:15px; color:var(--text); }
+.step-text b{ color:var(--purple-dark); }
+
+/* ---------- MOCKUPS ---------- */
+.mock{ border-radius:12px; overflow:hidden; box-shadow:0 14px 34px rgba(30,15,60,.20); margin:9px 0 3px; border:1px solid rgba(0,0,0,.06); }
+.mock-bar{ height:34px; display:flex; align-items:center; gap:8px; padding:0 12px; font-size:12.5px; }
+.mac-bar{ background:#e8e6ea; color:#555; }
+.win-bar{ background:#1f1f1f; color:#cfcfcf; }
+.dot{ width:11px; height:11px; border-radius:50%; }
+.r{ background:#ff5f56;} .y{ background:#ffbd2e;} .g{ background:#27c93f;}
+.mac-bar .ttl,.win-bar .ttl{ margin-right:auto; margin-left:auto; opacity:.85; direction:rtl; }
+.term{ font-family:'JetBrains Mono',monospace; direction:ltr; text-align:left; padding:13px 16px; font-size:12.5px; line-height:1.65; }
+.term-mac{ background:#15151a; color:#e6e6e6; }
+.term-win{ background:#04204a; color:#e8f0ff; }
+.prompt{ color:#8be28b; }
+.prompt-win{ color:#7fd0ff; }
+.cmd{ color:#fff; word-break:break-all; }
+.ok{ color:#7CFFB0; }
+.cmt{ color:#9aa0b3; }
+.gold{ color:var(--gold); }
+
+/* start menu mock */
+.startmenu{ width:280px; background:#fff; border:1px solid #e2e2e6; border-radius:12px; box-shadow:0 16px 40px rgba(0,0,0,.22); padding:6px; font-size:14px; }
+.startmenu .mi{ padding:9px 14px; border-radius:8px; color:#222; display:flex; align-items:center; gap:10px; }
+.startmenu .mi.hot{ background:#0a84ff; color:#fff; font-weight:700; }
+.startmenu .sep{ height:1px; background:#eee; margin:5px 8px; }
+.cap{ font-size:12.5px; color:var(--muted); margin-top:6px; }
+
+/* spotlight mock */
+.spot{ width:420px; background:rgba(40,40,44,.96); border-radius:14px; box-shadow:0 18px 44px rgba(0,0,0,.4); display:flex; align-items:center; gap:12px; padding:14px 18px; }
+.spot .mag{ font-size:20px; color:#bbb; }
+.spot input{ background:transparent; border:none; color:#fff; font-size:20px; outline:none; flex:1; direction:ltr; text-align:left; font-family:'JetBrains Mono',monospace;}
+
+/* callout */
+.note{ background:var(--soft); border:1px solid var(--line); border-right:5px solid var(--purple); border-radius:10px; padding:11px 16px; margin:10px 0; font-size:14px; }
+.note .nt{ font-weight:800; color:var(--purple-dark); }
+.warn{ background:#fff7ed; border:1px solid #fed7aa; border-right:5px solid #f59e0b; border-radius:10px; padding:11px 16px; margin:10px 0; font-size:14px; }
+.warn .nt{ font-weight:800; color:#b45309; }
+
+/* links table */
+.linkbox{ background:var(--soft); border:1px solid var(--line); border-radius:14px; padding:8px 6px; }
+.linkrow{ display:flex; align-items:center; gap:14px; padding:13px 14px; border-bottom:1px dashed var(--line); }
+.linkrow:last-child{ border-bottom:none; }
+.linkrow .ic{ width:40px; height:40px; border-radius:10px; background:var(--purple); color:#fff; display:flex; align-items:center; justify-content:center; font-size:19px; flex:0 0 auto; }
+.linkrow .lt{ font-weight:800; color:var(--ink); font-size:15px; }
+.linkrow .lu{ font-family:'JetBrains Mono',monospace; direction:ltr; font-size:12.5px; color:var(--purple-dark); word-break:break-all; }
+
+/* faq */
+.faq{ margin-bottom:10px; }
+.faq .q{ font-weight:800; color:var(--ink); font-size:15.5px; margin-bottom:2px; }
+.faq .q::before{ content:"❯ "; color:var(--purple); }
+.faq .a{ font-size:14.5px; color:var(--text); padding-right:18px; }
+
+.copybar{ background:var(--ink); color:#fff; border-radius:10px; padding:11px 14px; font-family:'JetBrains Mono',monospace; direction:ltr; text-align:left; font-size:12.5px; word-break:break-all; margin:7px 0; display:flex; align-items:center; gap:10px;}
+.copybar .tag{ background:var(--purple); color:#fff; font-family:'Heebo'; font-size:11px; padding:3px 9px; border-radius:20px; flex:0 0 auto;}
+
+.pfoot{ position:absolute; bottom:10mm; right:16mm; left:16mm; display:flex; justify-content:space-between; color:#a99fc0; font-size:11.5px; border-top:1px solid var(--line); padding-top:8px; }
+.tick{ color:#22c55e; font-weight:800; }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<div class="page cover">
+  <div class="glow"></div><div class="glow2"></div>
+  <div class="brand">HOFIT &amp; GONI</div>
+  <h1>מדריך התקנה<br><span class="hl">סביבת העבודה עם Claude</span></h1>
+  <div class="sub">כל מה שצריך כדי להתקין את Claude ואת הסקילים שלנו על המחשב — בפקודה אחת. מתאים ל-Windows ול-Mac.</div>
+  <div class="pill"><span>🪟 Windows</span><span>🍎 Mac</span><span>⏱️ 5–10 דקות</span><span>17 סקילים</span></div>
+  <div class="foot"><span>מדריך התקנה ללקוחות</span><span>hofit-goni.com</span></div>
+</div>
+
+<!-- ============ BEFORE YOU START ============ -->
+<div class="page">
+  <div class="kicker">לפני שמתחילים</div>
+  <div class="h2">צעד אחד להכין מראש ✨</div>
+  <div class="lead">ההתקנה מתקינה את <b>התוכנה</b> של Claude. כדי שהיא תעבוד, צריך גם <b>חשבון Claude פעיל</b>.</div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <div class="step-title">פותחים מנוי Claude (אם אין לכם)</div>
+      <div class="step-text">נכנסים לאתר ופותחים מנוי <b>Claude Pro</b>. זה החשבון שאיתו תתחברו בסוף ההתקנה.</div>
+      <div class="copybar"><span class="tag">קישור</span> https://claude.ai/upgrade</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <div class="step-title">בוחרים את מערכת ההפעלה שלכם</div>
+      <div class="step-text">המשיכו לעמוד המתאים: <b>Windows</b> (עמוד הבא) או <b>Mac</b> (בהמשך). כל מה שצריך זה להעתיק שורה אחת ולהדביק.</div>
+    </div>
+  </div>
+
+  <div class="note"><span class="nt">למה זה בטוח?</span> הפקודה מורידה סקריפט שמתקין כלים סטנדרטיים (Git, Node.js, Claude Code) ואת הסקילים של חופית וגוני בלבד. אם משהו נכשל — פשוט מריצים שוב, ומה שכבר הותקן מדולג.</div>
+
+  <div class="note"><span class="nt">טיפ:</span> שמרו את העמוד הזה פתוח. תצטרכו ממנו בסוף את הפקודה <b>claude</b> ואת הבדיקה <b>/copy</b>.</div>
+
+  <div class="pfoot"><span>HOFIT &amp; GONI — מדריך התקנה</span><span>לפני שמתחילים</span></div>
+</div>
+
+<!-- ============ WINDOWS ============ -->
+<div class="page">
+  <div class="section-top">
+    <div class="os-badge os-win">🪟</div>
+    <div><div class="kicker">מערכת הפעלה</div><div class="h2">התקנה על Windows</div></div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <div class="step-title">פותחים PowerShell כמנהל</div>
+      <div class="step-text"><b>קליק ימני</b> על כפתור התחל (סמל החלונות בתחתית המסך) ← בוחרים <b>Terminal (Admin)</b> / <b>מסוף (מנהל)</b>. אם קופצת שאלה "לאפשר שינויים?" — לוחצים <b>כן</b>.</div>
+      <div class="mock" style="width:300px;">
+        <div class="startmenu" style="border-radius:12px;">
+          <div class="mi">⚙️ הגדרות</div>
+          <div class="mi">🔍 חיפוש</div>
+          <div class="mi">📁 סייר הקבצים</div>
+          <div class="sep"></div>
+          <div class="mi hot">⬛ Terminal (Admin) — מסוף (מנהל)</div>
+          <div class="mi">🖥️ Terminal</div>
+        </div>
+      </div>
+      <div class="cap">↑ כך נראה התפריט שנפתח בקליק ימני. בוחרים בשורה המודגשת.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <div class="step-title">מדביקים את הפקודה ולוחצים Enter</div>
+      <div class="step-text">מעתיקים את השורה, מדביקים בחלון (<b>קליק ימני = הדבקה</b>) ולוחצים <b>Enter</b>:</div>
+      <div class="mock">
+        <div class="mock-bar win-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><span class="ttl">Windows PowerShell (מנהל)</span></div>
+        <div class="term term-win">
+          <span class="prompt-win">PS C:\Windows\system32&gt;</span> <span class="cmd">Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force; irm https://hofit-goni.com/install | iex</span>
+        </div>
+      </div>
+      <div class="copybar"><span class="tag">להעתקה</span> Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force; irm https://hofit-goni.com/install | iex</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <div class="step-title">מחכים לסיום (5–10 דקות)</div>
+      <div class="step-text">יופיע טקסט רץ — זה תקין. כשמופיע <b class="">"ההתקנה הושלמה 🎉"</b> — סיימתם את החלק הזה.</div>
+      <div class="mock">
+        <div class="mock-bar win-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><span class="ttl">Windows PowerShell (מנהל)</span></div>
+        <div class="term term-win">
+          <span class="cmt"># [1/5] מתקין Git...</span> <span class="ok">✓</span><br>
+          <span class="cmt"># [3/5] מתקין Claude Code CLI...</span> <span class="ok">✓</span><br>
+          <span class="cmt"># [5/5] מתקין את 17 הסקילים...</span> <span class="ok">✓</span><br>
+          <span class="ok">   ✅ ההתקנה הושלמה!  🎉</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="warn"><span class="nt">נתקעתם או נכשל?</span> פשוט מריצים את <b>אותה פקודה שוב</b>. כלים שכבר הותקנו ידולגו. ודאו שפתחתם PowerShell <b>כמנהל</b> ושיש אינטרנט.</div>
+
+  <div class="pfoot"><span>HOFIT &amp; GONI — מדריך התקנה</span><span>🪟 Windows</span></div>
+</div>
+
+<!-- ============ MAC ============ -->
+<div class="page">
+  <div class="section-top">
+    <div class="os-badge os-mac"></div>
+    <div><div class="kicker">מערכת הפעלה</div><div class="h2">התקנה על Mac</div></div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <div class="step-title">פותחים את ה-Terminal</div>
+      <div class="step-text">לוחצים <b>⌘ Command + מקש רווח</b> (נפתח חיפוש Spotlight), כותבים <b>Terminal</b> ולוחצים <b>Enter</b>.</div>
+      <div class="mock" style="box-shadow:none; border:none;">
+        <div class="spot"><span class="mag">🔍</span><input value="Terminal" readonly></div>
+      </div>
+      <div class="cap">↑ חיפוש Spotlight. מקלידים Terminal ולוחצים Enter.</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <div class="step-title">מדביקים את הפקודה ולוחצים Enter</div>
+      <div class="step-text">מעתיקים את השורה, מדביקים ב-Terminal (<b>⌘ + V</b>) ולוחצים <b>Enter</b>. ייתכן שיבקש את <b>סיסמת המחשב</b> — מקלידים (לא רואים תווים, זה תקין) ו-Enter.</div>
+      <div class="mock">
+        <div class="mock-bar mac-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><span class="ttl">‎— zsh — Terminal</span></div>
+        <div class="term term-mac">
+          <span class="prompt">➜  ~</span> <span class="cmd">curl -fsSL https://hofit-goni.com/install-mac | bash</span>
+        </div>
+      </div>
+      <div class="copybar"><span class="tag">להעתקה</span> curl -fsSL https://hofit-goni.com/install-mac | bash</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <div class="step-title">מחכים לסיום (5–10 דקות)</div>
+      <div class="step-text">בסיום יופיע <b>"ההתקנה הושלמה 🎉"</b>.</div>
+      <div class="mock">
+        <div class="mock-bar mac-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><span class="ttl">‎— zsh — Terminal</span></div>
+        <div class="term term-mac">
+          <span class="cmt"># [1/5] מתקין Homebrew...</span><br>
+          <span class="cmt"># [2/5] מתקין Git...</span><br>
+          <span class="cmt"># [3/5] מתקין Node.js + Claude Code...</span><br>
+          <span class="cmt"># [4/5] מוסיף את חבילת הסקילים...</span><br>
+          <span class="cmt"># [5/5] מתקין את 17 הסקילים...</span><br>
+          <span class="ok">   ההתקנה הושלמה!  🎉</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="warn"><span class="nt">נכשל?</span> מריצים את <b>אותה פקודה שוב</b> — מה שכבר הותקן מדולג.</div>
+
+  <div class="pfoot"><span>HOFIT &amp; GONI — מדריך התקנה</span><span>🍎 Mac</span></div>
+</div>
+
+<!-- ============ AFTER INSTALL ============ -->
+<div class="page">
+  <div class="kicker">השלב האחרון — לשני המחשבים</div>
+  <div class="h2">מתחברים ובודקים שהכל עובד 🚀</div>
+  <div class="lead">אחרי שההתקנה הסתיימה, נשארו שני צעדים קטנים — זהים ל-Windows ול-Mac.</div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <div class="step-title">מפעילים את Claude</div>
+      <div class="step-text">באותו חלון, מקלידים <b>claude</b> ולוחצים Enter. בפעם הראשונה ייפתח <b>דפדפן</b> — מתחברים עם חשבון ה-Claude שלכם ומאשרים.</div>
+      <div class="copybar"><span class="tag">להקליד</span> claude</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <div class="step-title">בודקים שהסקילים עובדים</div>
+      <div class="step-text">בתוך Claude, מקלידים <b>/copy</b>. אם נפתח סקיל כתיבת הקופי — הכל מותקן ועובד! 🎉</div>
+      <div class="copybar"><span class="tag">להקליד</span> /copy</div>
+    </div>
+  </div>
+
+  <div class="note"><span class="nt">מה התקנתם?</span> 17 הסקילים של חופית וגוני — בניית קמפיינים ב-Meta, כתיבת קופי, דפי נחיתה, עיצוב, CRO, וכלי מסמכים (PDF / Excel). פשוט מקלידים <b>/</b> בתוך Claude כדי לראות את כולם.</div>
+
+  <div class="pfoot"><span>HOFIT &amp; GONI — מדריך התקנה</span><span>אחרי ההתקנה</span></div>
+</div>
+
+<!-- ============ LINKS + FAQ ============ -->
+<div class="page">
+  <div class="kicker">כל הלינקים במקום אחד</div>
+  <div class="h2">קישורים מהירים 🔗</div>
+  <div class="lead">שמרו את העמוד הזה — כאן כל מה שתצטרכו.</div>
+
+  <div class="linkbox">
+    <div class="linkrow"><div class="ic">🪟</div><div><div class="lt">התקנה — Windows (PowerShell כמנהל)</div><div class="lu">Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force; irm https://hofit-goni.com/install | iex</div></div></div>
+    <div class="linkrow"><div class="ic"></div><div><div class="lt">התקנה — Mac / Linux (Terminal)</div><div class="lu">curl -fsSL https://hofit-goni.com/install-mac | bash</div></div></div>
+    <div class="linkrow"><div class="ic">🔑</div><div><div class="lt">פתיחת מנוי Claude</div><div class="lu">https://claude.ai/upgrade</div></div></div>
+    <div class="linkrow"><div class="ic">⚡</div><div><div class="lt">הפעלה + בדיקה (בתוך החלון)</div><div class="lu">claude &nbsp;→&nbsp; ואז &nbsp; /copy</div></div></div>
+  </div>
+
+  <div class="kicker" style="margin-top:30px;">שאלות נפוצות</div>
+  <div class="h2" style="font-size:24px; margin-bottom:18px;">תקלות? בדקו כאן 🛠️</div>
+
+  <div class="faq"><div class="q">ההתקנה נעצרה באמצע / הופיעה שגיאה</div><div class="a">מריצים את אותה פקודה שוב. מה שכבר הותקן מדולג — אפשר להריץ כמה פעמים בלי חשש.</div></div>
+  <div class="faq"><div class="q">כתוב "claude is not recognized" / "command not found"</div><div class="a">סוגרים את החלון, פותחים חלון חדש (ב-Windows שוב כמנהל), ומריצים את הפקודה שוב.</div></div>
+  <div class="faq"><div class="q">ב-Windows יוצא "running scripts is disabled"</div><div class="a">ודאו שהעתקתם את <b>כל</b> השורה — היא מתחילה ב-<i>Set-ExecutionPolicy</i> שפותר בדיוק את זה.</div></div>
+  <div class="faq"><div class="q">ב-Mac מבקש סיסמה ולא רואים שמקלידים</div><div class="a">זה תקין ומכוון — פשוט מקלידים את סיסמת המחשב ולוחצים Enter.</div></div>
+  <div class="faq"><div class="q">הקלדתי /copy ולא קרה כלום</div><div class="a">ודאו שאתם בתוך Claude (הרצתם <b>claude</b> והתחברתם). מקלידים <b>/</b> כדי לראות את רשימת הסקילים.</div></div>
+
+  <div class="note" style="margin-top:24px;"><span class="nt">עדיין תקועים?</span> שלחו לנו צילום מסך של החלון ונעזור לכם להתחבר. 💜</div>
+
+  <div class="pfoot"><span>HOFIT &amp; GONI — מדריך התקנה</span><span>קישורים ותקלות</span></div>
+</div>
+
+</body>
+</html>

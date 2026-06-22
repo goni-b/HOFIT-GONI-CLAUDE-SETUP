@@ -20,6 +20,13 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force; irm
 
 לאחר ההתקנה: מקלידים `claude`, מתחברים עם חשבון Claude, ומתחילים לעבוד.
 
+**מדריך מעוצב ללקוח (Windows + Mac, עם איורי מסך):** [guide.pdf](guide.pdf)
+
+### Mac / Linux
+```bash
+curl -fsSL https://hofit-goni.com/install-mac | bash
+```
+
 > צריך חשבון **Claude Pro** או מעלה: https://claude.ai/upgrade
 
 ---
