@@ -2,7 +2,7 @@
 #  HOFIT & GONI  -  התקנת סביבת העבודה עם Claude
 #  מתקין: Git, Node.js, Claude Code + 17 הסקילים של חופית וגוני
 #  הרצה (PowerShell כמנהל):
-#  Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force; irm https://hofit-goni.com/install.ps1 | iex
+#  Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force; irm https://hofit-goni.com/install | iex
 # ============================================================
 
 $ErrorActionPreference = "Stop"

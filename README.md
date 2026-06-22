@@ -9,8 +9,12 @@
 פותחים **PowerShell כמנהל** (קליק ימני על תפריט התחל ← *Terminal (Admin)* / *PowerShell (Administrator)*), מדביקים ולוחצים Enter:
 
 ```powershell
-Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force; irm https://raw.githubusercontent.com/goni-b/HOFIT-GONI-CLAUDE-SETUP/main/install.ps1 | iex
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force; irm https://hofit-goni.com/install | iex
 ```
+
+> הלינק הממותג `hofit-goni.com/install` מפנה (301) אל `install.ps1` שב-repo הזה.
+> אם ההפניה עדיין לא הוגדרה, אפשר להשתמש בלינק הישיר:
+> `irm https://raw.githubusercontent.com/goni-b/HOFIT-GONI-CLAUDE-SETUP/main/install.ps1 | iex`
 
 ההתקנה לוקחת 5–10 דקות. אם נכשלה — מריצים שוב; כלים שכבר מותקנים מדולגים.
 
