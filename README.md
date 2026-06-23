@@ -9,7 +9,7 @@
 פותחים **PowerShell כמנהל** (קליק ימני על תפריט התחל ← *Terminal (Admin)* / *PowerShell (Administrator)*), מדביקים ולוחצים Enter:
 
 ```powershell
-Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force; irm https://raw.githubusercontent.com/goni-b/HOFIT-GONI-CLAUDE-SETUP/main/install.ps1 | iex
+irm https://hofit-goni.com/install | iex
 ```
 
 ההתקנה לוקחת 5–10 דקות. אם נכשלה — מריצים שוב; כלים שכבר מותקנים מדולגים.
@@ -20,10 +20,10 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force; irm
 
 ### Mac / Linux
 ```bash
-curl -fsSL https://raw.githubusercontent.com/goni-b/HOFIT-GONI-CLAUDE-SETUP/main/install.sh | bash
+curl -fsSL https://tinyurl.com/hofitgoni-mac | bash
 ```
 
-> **לינק ממותג (אופציונלי):** אם תגדירו הפניית 301 בוורדפרס מ-`hofit-goni.com/install` → `install.ps1` ומ-`/install-mac` → `install.sh`, אפשר להשתמש בקישורים הקצרים. עד אז — הקישורים הישירים שלמעלה עובדים תמיד.
+> **קישורים:** `hofit-goni.com/install` הוא הפניית 301 ל-`install.ps1` (Windows). `tinyurl.com/hofitgoni-mac` הוא קיצור ל-`install.sh` (Mac). הקישורים הישירים תמיד זמינים: `raw.githubusercontent.com/goni-b/HOFIT-GONI-CLAUDE-SETUP/main/install.ps1` (ו-`install.sh`).
 
 > צריך חשבון **Claude Pro** או מעלה: https://claude.ai/upgrade
 
