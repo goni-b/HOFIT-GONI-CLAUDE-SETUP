@@ -2,11 +2,13 @@
 #  HOFIT & GONI  -  התקנת סביבת העבודה עם Claude
 #  מתקין: Git, Node.js, Claude Code + 17 הסקילים של חופית וגוני
 #  הרצה (PowerShell כמנהל):
-#  Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force; irm https://raw.githubusercontent.com/goni-b/HOFIT-GONI-CLAUDE-SETUP/main/install.ps1 | iex
+#  irm https://hofit-goni.com/install | iex
 # ============================================================
 
 $ErrorActionPreference = "Stop"
 try { [Console]::OutputEncoding = [System.Text.Encoding]::UTF8 } catch {}
+# מאפשר הרצת סקריפטים למשתמש הנוכחי (כדי שלא צריך פקודה נפרדת לפני ההתקנה)
+try { Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force } catch {}
 
 # --- הגדרות ה-marketplace שלנו (לא לשנות) ---
 $MarketplaceRepo = "goni-b/HOFIT-GONI-CLAUDE-SETUP"
