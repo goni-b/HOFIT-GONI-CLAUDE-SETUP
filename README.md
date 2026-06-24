@@ -20,8 +20,9 @@ irm https://hofit-goni.com/install | iex
 
 ### Mac / Linux
 ```bash
-curl -fsSL https://tinyurl.com/hofitgoni-mac | bash
+bash -c "$(curl -fsSL https://tinyurl.com/hofitgoni-mac)"
 ```
+> ב-Mac חובה הצורה `bash -c "$(curl …)"` ולא `curl … | bash` — אחרת Homebrew לא יכול לבקש סיסמה וההתקנה נתקעת.
 
 > **קישורים:** `hofit-goni.com/install` הוא הפניית 301 ל-`install.ps1` (Windows). `tinyurl.com/hofitgoni-mac` הוא קיצור ל-`install.sh` (Mac). הקישורים הישירים תמיד זמינים: `raw.githubusercontent.com/goni-b/HOFIT-GONI-CLAUDE-SETUP/main/install.ps1` (ו-`install.sh`).
 

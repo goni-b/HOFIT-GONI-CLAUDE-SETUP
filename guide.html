@@ -282,7 +282,7 @@ body{ font-family:'Assistant',sans-serif; color:var(--body); background:var(--bg
       <p>מעתיקים את השורה, מדביקים (<b>⌘ + V</b>) ולוחצים <b>Enter</b>. ייתכן שיבקש <b>סיסמת מחשב</b> — מקלידים (לא רואים תווים, זה תקין) ו-Enter.</p>
       <div class="win">
         <div class="win-head"><span class="d" style="background:#ff5f56"></span><span class="d" style="background:#ffbd2e"></span><span class="d" style="background:#27c93f"></span><span class="ttl"><i class="ti ti-copy"></i> העתיקו את השורה הזו במלואה</span></div>
-        <div class="win-body" style="white-space:nowrap; font-size:15px;"><span class="cmd">curl -fsSL https://tinyurl.com/hofitgoni-mac | bash</span></div>
+        <div class="win-body" style="white-space:nowrap; font-size:14px;"><span class="cmd">bash -c "$(curl -fsSL https://tinyurl.com/hofitgoni-mac)"</span></div>
       </div>
       <div class="cap"><i class="ti ti-cursor-text"></i> מסמנים את כל השורה ← מעתיקים (⌘C) ← מדביקים (⌘V) ← Enter.</div>
     </div>
@@ -312,12 +312,13 @@ body{ font-family:'Assistant',sans-serif; color:var(--body); background:var(--bg
   <div style="margin-top:22px;">
     <div class="gstep">
       <div class="n">1</div>
-      <div><h3>מפעילים את Claude</h3><p>באותו חלון מקלידים <span class="kbd">claude</span> ולוחצים Enter. בפעם הראשונה ייפתח דפדפן — מתחברים עם חשבון ה-Claude שלכם ומאשרים.</p></div>
+      <div><h3>מפעילים את Claude ומתחברים עם Google</h3><p>מקלידים <span class="kbd">claude</span> ו-Enter. נפתח <b>דפדפן</b> — לוחצים <b>«המשך עם Google»</b> ומתחברים עם ה-<b>Gmail</b> שלכם. <b>אין צורך להקליד סיסמה בחלון השחור!</b> אם הדפדפן נתן קוד — מעתיקים אותו בחזרה לחלון ולוחצים Enter.</p></div>
     </div>
     <div class="gstep">
       <div class="n">2</div>
       <div><h3>בודקים שהסקילים עובדים</h3><p>בתוך Claude מקלידים <span class="kbd">/copy</span>. נפתח סקיל כתיבת הקופי? הכל מותקן ועובד. מקלידים <span class="kbd">/</span> כדי לראות את כל הכלים.</p></div>
     </div>
+    <div class="call tip" style="margin-top:4px;"><i class="ti ti-brand-google ci"></i><div><b>טיפ להתחברות:</b> בחלון השחור בוחרים <b>"Claude account with subscription"</b> (חצים + Enter), וההתחברות עצמה — תמיד דרך הדפדפן עם חשבון Google. לא מקלידים סיסמה בטרמינל.</div></div>
   </div>
 
   <span class="eyebrow" style="margin-top:24px; display:inline-flex;"><i class="ti ti-apps"></i> מה התקנתם</span>
@@ -340,7 +341,7 @@ body{ font-family:'Assistant',sans-serif; color:var(--body); background:var(--bg
 
   <div class="links">
     <div class="lrow"><div class="ic"><i class="ti ti-brand-windows"></i></div><div><div class="t">התקנה — Windows</div><div class="u">irm https://hofit-goni.com/install | iex</div></div></div>
-    <div class="lrow"><div class="ic"><i class="ti ti-brand-apple"></i></div><div><div class="t">התקנה — Mac / Linux</div><div class="u">curl -fsSL https://tinyurl.com/hofitgoni-mac | bash</div></div></div>
+    <div class="lrow"><div class="ic"><i class="ti ti-brand-apple"></i></div><div><div class="t">התקנה — Mac / Linux</div><div class="u">bash -c "$(curl -fsSL https://tinyurl.com/hofitgoni-mac)"</div></div></div>
     <div class="lrow"><div class="ic"><i class="ti ti-key"></i></div><div><div class="t">פתיחת מנוי Claude</div><div class="u">https://claude.ai/upgrade</div></div></div>
     <div class="lrow"><div class="ic"><i class="ti ti-player-play"></i></div><div><div class="t">הפעלה ובדיקה (בתוך החלון)</div><div class="u">claude → ואז → /copy</div></div></div>
   </div>

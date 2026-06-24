@@ -3,7 +3,9 @@
 #  HOFIT & GONI  -  התקנת סביבת העבודה עם Claude  (Mac / Linux)
 #  מתקין: Homebrew, Git, Node.js, Claude Code + 17 הסקילים
 #  הרצה (Terminal):
-#  curl -fsSL https://raw.githubusercontent.com/goni-b/HOFIT-GONI-CLAUDE-SETUP/main/install.sh | bash
+#  bash -c "$(curl -fsSL https://tinyurl.com/hofitgoni-mac)"
+#  (חשוב: הצורה הזו שומרת על קלט אינטראקטיבי כדי ש-Homebrew יוכל לבקש סיסמה.
+#   אל תריצו עם "| bash" — זה שובר את בקשת הסיסמה ונתקע.)
 # ============================================================
 set -e
 
@@ -27,6 +29,8 @@ step 1 "מתקין Homebrew (מנהל החבילות של Mac)..."
 if command -v brew >/dev/null 2>&1; then
   green "   Homebrew כבר מותקן - מדלג."
 else
+  gray "   שימו לב: ייתכן שתתבקשו להזין את סיסמת המחשב (לא רואים תווים - זה תקין)"
+  gray "   ואולי ללחוץ RETURN. זה חלק רגיל מההתקנה של Homebrew."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 # הוספת brew ל-PATH של החלון הנוכחי (Apple Silicon + Intel)
