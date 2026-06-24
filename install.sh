@@ -44,7 +44,23 @@ if command -v git >/dev/null 2>&1; then green "   Git כבר מותקן - מדל
 # ---------- שלב 3: Node.js + Claude Code ----------
 step 3 "מתקין Node.js ו-Claude Code CLI..."
 if command -v node >/dev/null 2>&1; then green "   Node.js כבר מותקן ($(node --version)) - מדלג."; else brew install node; fi
+
+# התקנה לתיקיית גלובלים אישית - מונע שגיאת הרשאות EACCES כש-Node מותקן ב-/usr/local
+NPM_PREFIX="$HOME/.npm-global"
+mkdir -p "$NPM_PREFIX"
+npm config set prefix "$NPM_PREFIX" >/dev/null 2>&1
+export PATH="$NPM_PREFIX/bin:$PATH"
+PATH_LINE='export PATH="$HOME/.npm-global/bin:$PATH"'
+for RC in "$HOME/.zprofile" "$HOME/.zshrc"; do
+  touch "$RC" 2>/dev/null
+  grep -qF "$PATH_LINE" "$RC" 2>/dev/null || echo "$PATH_LINE" >> "$RC"
+done
+for RC in "$HOME/.bashrc" "$HOME/.bash_profile"; do
+  [ -f "$RC" ] && { grep -qF "$PATH_LINE" "$RC" 2>/dev/null || echo "$PATH_LINE" >> "$RC"; }
+done
+green "   מתקין Claude Code..."
 npm install -g @anthropic-ai/claude-code
+hash -r 2>/dev/null || true
 
 # ---------- שלב 4: הוספת ה-marketplace ----------
 step 4 "מוסיף את חבילת הסקילים של חופית וגוני..."
@@ -63,12 +79,13 @@ green "========================================"
 echo ""
 echo "מה עכשיו? שני צעדים אחרונים:"
 echo ""
-cyan  "  1) הקלידו:  claude"
-gray  "     (בפעם הראשונה ייפתח דפדפן - התחברו עם חשבון Claude שלכם)"
+cyan  "  1) פתחו חלון Terminal חדש, והקלידו:  claude"
+gray  "     (חשוב לפתוח חלון חדש כדי שהמערכת תזהה את מה שהותקן)"
+gray  "     ייפתח דפדפן - מתחברים עם Google/Gmail. לא צריך סיסמה בטרמינל."
 echo ""
 cyan  "  2) בתוך Claude, נסו להקליד:  /copy"
 gray  "     ותראו שהסקילים של חופית וגוני עובדים."
 echo ""
-echo "אין לכם עדיין חשבון Claude? פתחו מנוי Claude Pro בכתובת:"
+echo "אין לכם עדיין מנוי Claude? פותחים Claude Pro (עם אותו חשבון Google):"
 echo "  https://claude.ai/upgrade"
 echo ""
